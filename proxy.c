@@ -248,8 +248,9 @@ void parse_uri(char *uri,char *hostname,char *path,int *port)
 /**************************************
  * Cache Function
  **************************************/
-
-void cache_init(){
+`;
+void cache_init()
+{
     cache.cache_num = 0;
     int i;
     for(i=0;i<CACHE_OBJS_COUNT;i++){
