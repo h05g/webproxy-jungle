@@ -6,6 +6,7 @@
 #define LRU_MAGIC_NUMBER 9999
 #define CACHE_OBJS_COUNT 10
 /* You won't lose style points for including this long line in your code */
+// telnet에서 접속한 Host가 받아볼 헤더와 tiny 서버 echo 헤더 양식 정의
 static const char *user_agent_hdr = "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.3) Gecko/20120305 Firefox/10.0.3\r\n";
 static const char *conn_hdr = "Connection: close\r\n";
 static const char *prox_hdr = "Proxy-Connection: close\r\n";
@@ -17,7 +18,7 @@ static const char *connection_key = "Connection";
 static const char *user_agent_key= "User-Agent";
 static const char *proxy_connection_key = "Proxy-Connection";
 static const char *host_key = "Host";
-void *thread(void *vargp);
+void *thread(void *vargp);  
 
 void doit(int connfd);
 void parse_uri(char *uri,char *hostname,char *path,int *port);
@@ -66,6 +67,7 @@ int main(int argc,char **argv)
 
     cache_init();
 
+    // ./proxy <port>의 형태로 실행하지 않으면(argc)
     if(argc != 2){
         fprintf(stderr,"usage :%s <port> \n",argv[0]);
         exit(1);
@@ -248,7 +250,7 @@ void parse_uri(char *uri,char *hostname,char *path,int *port)
 /**************************************
  * Cache Function
  **************************************/
-`;
+
 void cache_init()
 {
     cache.cache_num = 0;
